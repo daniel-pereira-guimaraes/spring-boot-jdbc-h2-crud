@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.crud.jdbc.h2.dto.ResponseDTO;
 import com.example.crud.jdbc.h2.entities.Person;
 import com.example.crud.jdbc.h2.repositories.PersonRepository;
 
@@ -24,7 +25,7 @@ public class PersonController {
 	private PersonRepository personRepository;
 	
 	@Bean
-	public void init() {
+	private void init() {
 		/* Insere dados iniciais, apenas para testes. Como estamos usando H2 Database,
 		 * os dados são perdidos ao finalizar o sistema.
 		 */
@@ -34,11 +35,11 @@ public class PersonController {
 	}
 	
 	@GetMapping
-	public ResponseEntity getAll() {
+	public ResponseEntity<ResponseDTO> getAll() {
 		try {
-			return new ResponseEntity<>(personRepository.selectAll(), HttpStatus.OK);
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(personRepository.selectAll(), null), HttpStatus.OK);
 		} catch(Exception e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(null, e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
