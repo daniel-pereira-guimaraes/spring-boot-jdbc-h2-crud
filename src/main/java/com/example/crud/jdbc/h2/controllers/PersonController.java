@@ -1,6 +1,7 @@
 package com.example.crud.jdbc.h2.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -21,6 +22,16 @@ public class PersonController {
 	
 	@Autowired
 	private PersonRepository personRepository;
+	
+	@Bean
+	public void init() {
+		/* Insere dados iniciais, apenas para testes. Como estamos usando H2 Database,
+		 * os dados são perdidos ao finalizar o sistema.
+		 */
+		personRepository.insert(new Person(0L, "Fulano de Tal", "123-789", null, null));
+		personRepository.insert(new Person(0L, "Ciclano de Silva", "147-258", null, null));
+		personRepository.insert(new Person(0L, "Beltrano de Souza", "963-852", null, null));
+	}
 	
 	@GetMapping
 	public ResponseEntity getAll() {
