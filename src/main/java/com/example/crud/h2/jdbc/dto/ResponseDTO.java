@@ -1,4 +1,4 @@
-package com.example.crud.jdbc.h2.dto;
+package com.example.crud.h2.jdbc.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 

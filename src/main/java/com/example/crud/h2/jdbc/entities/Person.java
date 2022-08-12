@@ -1,4 +1,4 @@
-package com.example.crud.jdbc.h2.entities;
+package com.example.crud.h2.jdbc.entities;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
