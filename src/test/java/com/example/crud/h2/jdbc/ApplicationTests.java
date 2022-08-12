@@ -1,4 +1,4 @@
-package com.example.crud.jdbc.h2;
+package com.example.crud.h2.jdbc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
