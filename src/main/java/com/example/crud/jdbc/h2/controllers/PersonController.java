@@ -32,6 +32,15 @@ public class PersonController {
 	}
 	
 	
+	@GetMapping("/{id}")
+	public ResponseEntity getById(@PathVariable Long id) {
+		try {
+			return new ResponseEntity<>(personRepository.selectById(id), HttpStatus.OK);
+		} catch(Exception e) {
+			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+	
 	@PostMapping
 	public ResponseEntity post(@RequestBody Person person) {
 		try {
