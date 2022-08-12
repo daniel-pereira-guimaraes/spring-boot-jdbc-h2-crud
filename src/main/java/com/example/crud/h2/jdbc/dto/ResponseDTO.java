@@ -8,6 +8,10 @@ public class ResponseDTO {
 	private Object data;
 	private String message;
 	
+	public ResponseDTO() {
+		super();
+	}
+
 	public ResponseDTO(Object data, String message) {
 		super();
 		this.data = data;

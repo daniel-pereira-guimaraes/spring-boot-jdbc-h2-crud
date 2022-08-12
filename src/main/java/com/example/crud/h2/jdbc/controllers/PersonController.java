@@ -45,41 +45,41 @@ public class PersonController {
 	
 	
 	@GetMapping("/{id}")
-	public ResponseEntity getById(@PathVariable Long id) {
+	public ResponseEntity<ResponseDTO> getById(@PathVariable Long id) {
 		try {
-			return new ResponseEntity<>(personRepository.selectById(id), HttpStatus.OK);
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(personRepository.selectById(id), null), HttpStatus.OK);
 		} catch(Exception e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(null, e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 	
 	@PostMapping
-	public ResponseEntity post(@RequestBody Person person) {
+	public ResponseEntity<ResponseDTO> post(@RequestBody Person person) {
 		try {
-			return new ResponseEntity<>(personRepository.insert(person), HttpStatus.CREATED);
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(personRepository.insert(person), null), HttpStatus.CREATED);
 		} catch(Exception e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(null, e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
 			
 		}
 	}
 	
 	@PutMapping
-	public ResponseEntity put(@RequestBody Person person) {
+	public ResponseEntity<ResponseDTO> put(@RequestBody Person person) {
 		try {
-			return new ResponseEntity<>(personRepository.update(person), HttpStatus.OK); 
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(personRepository.update(person), null), HttpStatus.OK); 
 		} catch(Exception e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(null, e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
 			
 		}
 	}
 	
 	@DeleteMapping("/{id}")
-	public ResponseEntity delete(@PathVariable Long id) {
+	public ResponseEntity<ResponseDTO> delete(@PathVariable Long id) {
 		try {
 			personRepository.delete(id);
-			return new ResponseEntity<>(null, HttpStatus.OK);
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(), HttpStatus.OK);
 		} catch(Exception e) {
-			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<ResponseDTO>(new ResponseDTO(null, e.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 
