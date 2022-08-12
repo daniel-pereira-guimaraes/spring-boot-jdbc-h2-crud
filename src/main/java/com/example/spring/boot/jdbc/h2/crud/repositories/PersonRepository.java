@@ -1,4 +1,4 @@
-package com.example.crud.h2.jdbc.repositories;
+package com.example.spring.boot.jdbc.h2.crud.repositories;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,7 +14,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
-import com.example.crud.h2.jdbc.entities.Person;
+import com.example.spring.boot.jdbc.h2.crud.entities.Person;
 
 @Repository
 public class PersonRepository {

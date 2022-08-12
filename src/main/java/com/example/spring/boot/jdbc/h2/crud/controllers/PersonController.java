@@ -1,4 +1,4 @@
-package com.example.crud.h2.jdbc.controllers;
+package com.example.spring.boot.jdbc.h2.crud.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.crud.h2.jdbc.dto.ResponseDTO;
-import com.example.crud.h2.jdbc.entities.Person;
-import com.example.crud.h2.jdbc.repositories.PersonRepository;
+import com.example.spring.boot.jdbc.h2.crud.dto.ResponseDTO;
+import com.example.spring.boot.jdbc.h2.crud.entities.Person;
+import com.example.spring.boot.jdbc.h2.crud.repositories.PersonRepository;
 
 @RestController
 @RequestMapping("/person")

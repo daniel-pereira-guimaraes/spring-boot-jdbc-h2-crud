@@ -1,4 +1,4 @@
-package com.example.crud.h2.jdbc;
+package com.example.spring.boot.jdbc.h2.crud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
